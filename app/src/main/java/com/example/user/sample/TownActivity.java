@@ -1,22 +1,17 @@
 package com.example.user.sample;
 
-import android.content.Context;
 import android.content.Intent;
 import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
-import android.location.Location;
-import android.location.LocationListener;
-import android.location.LocationManager;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
-import android.widget.Toast;
 
+import com.google.android.gms.maps.CameraUpdate;
 import com.google.android.gms.maps.CameraUpdateFactory;
 import com.google.android.gms.maps.GoogleMap;
-import com.google.android.gms.maps.MapsInitializer;
 import com.google.android.gms.maps.OnMapReadyCallback;
 import com.google.android.gms.maps.SupportMapFragment;
 import com.google.android.gms.maps.model.BitmapDescriptorFactory;
@@ -50,8 +45,6 @@ public class TownActivity extends AppCompatActivity {
 
     MarkerOptions marker;
 
-    GoogleMap map;
-
     private void initWidget() {
         txtTownName = (TextView) findViewById(R.id.txtTownName);
         txtTownCity = (TextView) findViewById(R.id.txtTownCity);
@@ -66,8 +59,6 @@ public class TownActivity extends AppCompatActivity {
 
         btnTownCall = (Button) findViewById(R.id.btnTownCall);
         btnTownHomePage = (Button) findViewById(R.id.btnTownHomePage);
-
-
     }
 
     private void getIntentData() {
@@ -82,23 +73,11 @@ public class TownActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_town);
 
-        mapFragment = (SupportMapFragment) getSupportFragmentManager().findFragmentById(R.id.map);
-        mapFragment.getMapAsync(new OnMapReadyCallback() {
-            @Override
-            public void onMapReady(GoogleMap googleMap) {
-                map = googleMap;
-            }
-        });
-
-        MapsInitializer.initialize(this);
-
         initWidget();
 
         getIntentData();
 
         findDatabase();
-
-        requestMyLocation();
 
         setWidget();
 
@@ -117,47 +96,6 @@ public class TownActivity extends AppCompatActivity {
         });
     }
 
-    public void requestMyLocation() {
-        long minTime = 10000;
-        float minDistance = 0;
-
-        LocationManager manager = (LocationManager) getSystemService(Context.LOCATION_SERVICE);
-        manager.requestLocationUpdates(
-                LocationManager.GPS_PROVIDER,
-                minTime,
-                minDistance,
-                new LocationListener() {
-                    @Override
-                    public void onLocationChanged(Location location) {
-                        showCurrentLocation(location);
-                    }
-
-                    @Override
-                    public void onStatusChanged(String provider, int status, Bundle extras) {
-
-                    }
-
-                    @Override
-                    public void onProviderEnabled(String provider) {
-
-                    }
-
-                    @Override
-                    public void onProviderDisabled(String provider) {
-
-                    }
-                }
-        );
-    }
-
-    public void showCurrentLocation(Location location) {
-        LatLng curPoint = new LatLng(latitude, longitude);
-
-        map.animateCamera(CameraUpdateFactory.newLatLngZoom(curPoint, 15)); // 15는 zoom 레벨
-
-        showMarker(location);
-    }
-
     private void setWidget() {
         txtTownName.setText(townName);
         txtTownCity.setText(state + " " + city);
@@ -170,9 +108,25 @@ public class TownActivity extends AppCompatActivity {
         txtTownHomePage.setText(homePage);
         txtTownManagement.setText(management);
 
+        mapFragment = (SupportMapFragment) getSupportFragmentManager().findFragmentById(R.id.map);
+        mapFragment.getMapAsync(new OnMapReadyCallback() {
+            @Override
+            public void onMapReady(GoogleMap googleMap) {
+                googleMap.moveCamera(CameraUpdateFactory.newLatLng(new LatLng(latitude, longitude)));
 
-        Toast.makeText(this, "latitude : " + latitude + "\nlongitude : " + longitude, Toast.LENGTH_SHORT).show();
-        //showMarker();
+                CameraUpdate zoom = CameraUpdateFactory.zoomTo(15);
+                googleMap.animateCamera(zoom);
+
+                marker = new MarkerOptions();
+
+                marker.position(new LatLng(latitude, longitude));
+                marker.title(townName);
+                marker.snippet(address);
+                marker.icon(BitmapDescriptorFactory.fromResource(R.drawable.blue_marker));
+
+                googleMap.addMarker(marker).showInfoWindow();
+            }
+        });
     }
 
     private void findDatabase() {
@@ -200,58 +154,4 @@ public class TownActivity extends AppCompatActivity {
         }
     }
 
-    @Override
-    protected void onPause() {
-        super.onPause();
-
-        if(map != null) {
-            map.setMyLocationEnabled(false);
-        }
-    }
-
-    @Override
-    protected void onResume() {
-        super.onResume();
-
-        if(map != null) {
-            map.setMyLocationEnabled(true);
-        }
-    }
-
-    public void showMarker(Location location) {
-        if(marker == null) {
-            marker = new MarkerOptions();
-
-            marker.position(new LatLng(location.getLatitude(), location.getLongitude()));
-            marker.title(townName);
-            marker.snippet(address);
-            marker.icon(BitmapDescriptorFactory.fromResource(R.drawable.blue_marker));
-
-            map.addMarker(marker);
-        }
-        else {
-            marker.position(new LatLng(location.getLatitude(), location.getLongitude()));
-
-        }
-    }
-
-    public void showMarker() {
-        LatLng point = new LatLng(latitude, longitude);
-
-        map.animateCamera(CameraUpdateFactory.newLatLngZoom(point, 15));
-/*
-        if(marker == null) {
-            marker = new MarkerOptions();
-
-            marker.position(new LatLng(latitude, longitude));
-            marker.title(townName);
-            marker.icon(BitmapDescriptorFactory.fromResource(R.drawable.blue_marker));
-
-            map.addMarker(marker);
-        }
-        else {
-            marker.position(new LatLng(latitude, longitude));
-        }
-*/
-    }
 }
