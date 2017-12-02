@@ -165,8 +165,6 @@ public class ListViewActivity extends AppCompatActivity {
                         Intent myIntent = new Intent(getApplicationContext(), TownActivity.class);
 
                         myIntent.putExtra("TOWN_NAME", townName);
-                        myIntent.putExtra("TOWN_STATE", state);
-                        myIntent.putExtra("TOWN_CITY", city);
 
                         startActivity(myIntent);
                     }

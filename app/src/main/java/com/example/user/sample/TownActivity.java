@@ -64,8 +64,6 @@ public class TownActivity extends AppCompatActivity {
     private void getIntentData() {
         Intent intent = getIntent();
         townName = intent.getStringExtra("TOWN_NAME");
-        state = intent.getStringExtra("TOWN_STATE");
-        city = intent.getStringExtra("TOWN_CITY");
     }
 
     @Override
@@ -135,12 +133,14 @@ public class TownActivity extends AppCompatActivity {
         if(db != null) {
             String sql = "select * " +
                     "from town " +
-                    "where townName = \"" + townName + "\" AND state = \"" + state + "\" AND city = \"" + city + "\";";
+                    "where townName = \"" + townName + "\";";
 
             Cursor cursor = db.rawQuery(sql, null);
 
             cursor.moveToNext();
 
+            state = cursor.getString(1);
+            city = cursor.getString(2);
             management = cursor.getString(3);
             program = cursor.getString(4);
             activity = cursor.getString(5);
