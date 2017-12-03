@@ -44,9 +44,9 @@ public class ListViewActivity extends AppCompatActivity {
         REQUEST_CODE = intent.getStringExtra("REQUEST_CODE");
 
         if(REQUEST_CODE.equals("city"))
-            spnAdapter1 = ArrayAdapter.createFromResource(getApplicationContext(), R.array.state_spinner, android.R.layout.simple_spinner_item);
+            spnAdapter1 = ArrayAdapter.createFromResource(getApplicationContext(), R.array.state_spinner, R.layout.spinner_item);
         else if(REQUEST_CODE.equals("program")) {
-            spnAdapter1 = ArrayAdapter.createFromResource(getApplicationContext(), R.array.program_spinner, android.R.layout.simple_spinner_item);
+            spnAdapter1 = ArrayAdapter.createFromResource(getApplicationContext(), R.array.program_spinner, R.layout.spinner_item);
 
             spnSelect2.setVisibility(View.GONE);
         }
@@ -78,37 +78,37 @@ public class ListViewActivity extends AppCompatActivity {
             spnSelect2.setVisibility(View.VISIBLE);
 
             if(key.equals("서울특별시"))
-                spnAdapter2 = ArrayAdapter.createFromResource(getApplicationContext(), R.array.seoul_spinner, android.R.layout.simple_spinner_item);
+                spnAdapter2 = ArrayAdapter.createFromResource(getApplicationContext(), R.array.seoul_spinner, R.layout.spinner_item);
             else if(key.equals("대전광역시"))
-                spnAdapter2 = ArrayAdapter.createFromResource(getApplicationContext(), R.array.daejeon_spinner, android.R.layout.simple_spinner_item);
+                spnAdapter2 = ArrayAdapter.createFromResource(getApplicationContext(), R.array.daejeon_spinner, R.layout.spinner_item);
             else if(key.equals("대구광역시"))
-                spnAdapter2 = ArrayAdapter.createFromResource(getApplicationContext(), R.array.daegu_spinner, android.R.layout.simple_spinner_item);
+                spnAdapter2 = ArrayAdapter.createFromResource(getApplicationContext(), R.array.daegu_spinner, R.layout.spinner_item);
             else if(key.equals("울산광역시"))
-                spnAdapter2 = ArrayAdapter.createFromResource(getApplicationContext(), R.array.ulsan_spinner, android.R.layout.simple_spinner_item);
+                spnAdapter2 = ArrayAdapter.createFromResource(getApplicationContext(), R.array.ulsan_spinner, R.layout.spinner_item);
             else if(key.equals("부산광역시"))
-                spnAdapter2 = ArrayAdapter.createFromResource(getApplicationContext(), R.array.busan_spinner, android.R.layout.simple_spinner_item);
+                spnAdapter2 = ArrayAdapter.createFromResource(getApplicationContext(), R.array.busan_spinner, R.layout.spinner_item);
             else if(key.equals("광주광역시"))
-                spnAdapter2 = ArrayAdapter.createFromResource(getApplicationContext(), R.array.gwangju_spinner, android.R.layout.simple_spinner_item);
+                spnAdapter2 = ArrayAdapter.createFromResource(getApplicationContext(), R.array.gwangju_spinner, R.layout.spinner_item);
             else if(key.equals("세종특별자치시"))
-                spnAdapter2 = ArrayAdapter.createFromResource(getApplicationContext(), R.array.sejong_spinner, android.R.layout.simple_spinner_item);
+                spnAdapter2 = ArrayAdapter.createFromResource(getApplicationContext(), R.array.sejong_spinner, R.layout.spinner_item);
             else if(key.equals("경기도"))
-                spnAdapter2 = ArrayAdapter.createFromResource(getApplicationContext(), R.array.gyeonggi_spinner, android.R.layout.simple_spinner_item);
+                spnAdapter2 = ArrayAdapter.createFromResource(getApplicationContext(), R.array.gyeonggi_spinner, R.layout.spinner_item);
             else if(key.equals("강원도"))
-                spnAdapter2 = ArrayAdapter.createFromResource(getApplicationContext(), R.array.gangwon_spinner, android.R.layout.simple_spinner_item);
+                spnAdapter2 = ArrayAdapter.createFromResource(getApplicationContext(), R.array.gangwon_spinner, R.layout.spinner_item);
             else if(key.equals("충청남도"))
-                spnAdapter2 = ArrayAdapter.createFromResource(getApplicationContext(), R.array.chungnam_spinner, android.R.layout.simple_spinner_item);
+                spnAdapter2 = ArrayAdapter.createFromResource(getApplicationContext(), R.array.chungnam_spinner, R.layout.spinner_item);
             else if(key.equals("충청북도"))
-                spnAdapter2 = ArrayAdapter.createFromResource(getApplicationContext(), R.array.chungbuk_spinner, android.R.layout.simple_spinner_item);
+                spnAdapter2 = ArrayAdapter.createFromResource(getApplicationContext(), R.array.chungbuk_spinner, R.layout.spinner_item);
             else if(key.equals("경상북도"))
-                spnAdapter2 = ArrayAdapter.createFromResource(getApplicationContext(), R.array.gyeongbuk_spinner, android.R.layout.simple_spinner_item);
+                spnAdapter2 = ArrayAdapter.createFromResource(getApplicationContext(), R.array.gyeongbuk_spinner, R.layout.spinner_item);
             else if(key.equals("경상남도"))
-                spnAdapter2 = ArrayAdapter.createFromResource(getApplicationContext(), R.array.gyeongnam_spinner, android.R.layout.simple_spinner_item);
+                spnAdapter2 = ArrayAdapter.createFromResource(getApplicationContext(), R.array.gyeongnam_spinner, R.layout.spinner_item);
             else if(key.equals("전라북도"))
-                spnAdapter2 = ArrayAdapter.createFromResource(getApplicationContext(), R.array.jeonbuk_spinner, android.R.layout.simple_spinner_item);
+                spnAdapter2 = ArrayAdapter.createFromResource(getApplicationContext(), R.array.jeonbuk_spinner, R.layout.spinner_item);
             else if(key.equals("전라남도"))
-                spnAdapter2 = ArrayAdapter.createFromResource(getApplicationContext(), R.array.jeonnam_spinner, android.R.layout.simple_spinner_item);
+                spnAdapter2 = ArrayAdapter.createFromResource(getApplicationContext(), R.array.jeonnam_spinner, R.layout.spinner_item);
             else if(key.equals("제주특별자치도"))
-                spnAdapter2 = ArrayAdapter.createFromResource(getApplicationContext(), R.array.jeju_spinner, android.R.layout.simple_spinner_item);
+                spnAdapter2 = ArrayAdapter.createFromResource(getApplicationContext(), R.array.jeju_spinner, R.layout.spinner_item);
 
             spnSelect2.setAdapter(spnAdapter2);
 
@@ -159,8 +159,6 @@ public class ListViewActivity extends AppCompatActivity {
                     @Override
                     public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
                         String townName = TownItems[position].getName();
-                        String state = TownItems[position].getState();
-                        String city = TownItems[position].getCity();
 
                         Intent myIntent = new Intent(getApplicationContext(), TownActivity.class);
 

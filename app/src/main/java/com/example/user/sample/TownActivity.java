@@ -3,6 +3,7 @@ package com.example.user.sample;
 import android.content.Intent;
 import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
+import android.net.Uri;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.view.View;
@@ -57,6 +58,8 @@ public class TownActivity extends AppCompatActivity {
         txtTownHomePage = (TextView) findViewById(R.id.txtTownHomePage);
         txtTownManagement = (TextView) findViewById(R.id.txtTownManagement);
 
+        txtTownHomePage.setVisibility(View.VISIBLE);
+
         btnTownCall = (Button) findViewById(R.id.btnTownCall);
         btnTownHomePage = (Button) findViewById(R.id.btnTownHomePage);
     }
@@ -82,14 +85,16 @@ public class TownActivity extends AppCompatActivity {
         btnTownCall.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-
+                Intent myIntent = new Intent(Intent.ACTION_VIEW, Uri.parse("tel:" + callNumber));
+                startActivity(myIntent);
             }
         });
 
         btnTownHomePage.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-
+                Intent myIntent = new Intent(Intent.ACTION_VIEW, Uri.parse(homePage));
+                startActivity(myIntent);
             }
         });
     }
@@ -105,6 +110,9 @@ public class TownActivity extends AppCompatActivity {
         txtTownCall.setText(callNumber);
         txtTownHomePage.setText(homePage);
         txtTownManagement.setText(management);
+
+        if(homePage.equals(""))
+            btnTownHomePage.setVisibility(View.INVISIBLE);
 
         mapFragment = (SupportMapFragment) getSupportFragmentManager().findFragmentById(R.id.map);
         mapFragment.getMapAsync(new OnMapReadyCallback() {
