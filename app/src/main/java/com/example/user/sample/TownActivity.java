@@ -147,9 +147,8 @@ public class TownActivity extends AppCompatActivity {
 
             cursor.moveToNext();
 
-            state = cursor.getString(1);
-            city = cursor.getString(2);
-            management = cursor.getString(3);
+            state = cursor.getString(2);
+            city = cursor.getString(3);
             program = cursor.getString(4);
             activity = cursor.getString(5);
             facility = cursor.getString(6);
@@ -157,6 +156,7 @@ public class TownActivity extends AppCompatActivity {
             president = cursor.getString(8);
             callNumber = cursor.getString(9);
             homePage = cursor.getString(10);
+            management = cursor.getString(11);
             latitude = cursor.getDouble(12);
             longitude = cursor.getDouble(13);
         }

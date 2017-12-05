@@ -1,180 +1,252 @@
-<?xml version="1.0" encoding="utf-8"?>
+<?xml version="1.0" encoding="UTF-8"?>
 <LinearLayout
-    xmlns:android="http://schemas.android.com/apk/res/android"
-    android:layout_width="match_parent"
-    android:layout_height="match_parent"
+    android:background="@drawable/s_img2"
     android:orientation="vertical"
-    android:background="@drawable/s_img2">
+    android:layout_height="match_parent"
+    android:layout_width="match_parent"
+    xmlns:android="http://schemas.android.com/apk/res/android">
 
     <ScrollView
-        android:id="@+id/scrollView"
+        android:id="@+id/scrollView2"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_weight="1">
 
         <LinearLayout
-            android:layout_width="match_parent"
+            android:orientation="horizontal"
             android:layout_height="match_parent"
-            android:orientation="vertical">
-
-            <TextView
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:text="마을 이름"
-                android:textSize="12dp"/>
-
-            <TextView
-                android:id="@+id/txtTownName"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:textSize="18dp"/>
-
-            <TextView
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:text="마을 행정구역"
-                android:textSize="12dp"/>
-
-            <TextView
-                android:id="@+id/txtTownCity"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:textSize="18dp"/>
-
-            <TextView
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:text="소재지 도로명 주소"
-                android:textSize="12dp"/>
-
-            <TextView
-                android:id="@+id/txtTownAddress"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:textSize="18dp"/>
-
-            <TextView
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:text="체험 프로그램 구분"
-                android:textSize="12dp" />
-
-            <TextView
-                android:id="@+id/txtTownProgram"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:textSize="18dp"/>
-
-            <TextView
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:text="체험내용"
-                android:textSize="12dp"/>
-
-            <TextView
-                android:id="@+id/txtTownActivity"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:textSize="18dp"/>
-
-            <TextView
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:text="보유시설"
-                android:textSize="12dp"/>
-
-            <TextView
-                android:id="@+id/txtTownFacility"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:textSize="18dp"/>
-
-            <TextView
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:text="대표자 성명"
-                android:textSize="12dp"/>
-
-            <TextView
-                android:id="@+id/txtTownPresident"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:textSize="18dp"/>
-
-            <TextView
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:text="대표 전화번호"
-                android:textSize="12dp"/>
+            android:layout_width="match_parent">
 
             <LinearLayout
-                android:layout_width="match_parent"
+                android:orientation="vertical"
                 android:layout_height="wrap_content"
-                android:orientation="horizontal">
+                android:layout_width="wrap_content"
+                android:layout_marginRight="3dp">
 
                 <TextView
-                    android:id="@+id/txtTownCall"
-                    android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:textSize="18dp"/>
+                    android:layout_width="match_parent"
+                    android:textSize="16dp"
+                    android:text="마을 이름"
+                    android:layout_marginBottom="4dp"
+                    android:gravity="center_vertical|center_horizontal"/>
 
-                <Button
-                    android:id="@+id/btnTownCall"
-                    android:layout_width="wrap_content"
+                <TextView
                     android:layout_height="wrap_content"
-                    android:text="문의하기"
-                    android:textSize="18dp"/>
+                    android:layout_width="match_parent"
+                    android:textSize="16dp"
+                    android:text="행정구역"
+                    android:layout_marginBottom="4dp"
+                    android:gravity="center_vertical|center_horizontal"/>
+
+                <TextView
+                    android:layout_height="wrap_content"
+                    android:layout_width="match_parent"
+                    android:textSize="16dp"
+                    android:text="도로명 주소"
+                    android:layout_marginBottom="4dp"
+                    android:gravity="center_vertical|center_horizontal"/>
+
+                <TextView
+                    android:layout_height="wrap_content"
+                    android:layout_width="match_parent"
+                    android:textSize="16dp"
+                    android:text="프로그램"
+                    android:layout_marginBottom="4dp"
+                    android:gravity="center_vertical|center_horizontal"/>
+
+                <TextView
+                    android:layout_height="wrap_content"
+                    android:layout_width="match_parent"
+                    android:textSize="16dp"
+                    android:text="체험내용"
+                    android:layout_marginBottom="4dp"
+                    android:gravity="center_vertical|center_horizontal"/>
+
+                <TextView
+                    android:layout_height="wrap_content"
+                    android:layout_width="match_parent"
+                    android:textSize="16dp"
+                    android:text="보유시설"
+                    android:layout_marginBottom="4dp"
+                    android:gravity="center_vertical|center_horizontal"/>
+
+                <TextView
+                    android:layout_height="wrap_content"
+                    android:layout_width="match_parent"
+                    android:textSize="16dp"
+                    android:text="대표"
+                    android:layout_marginBottom="4dp"
+                    android:gravity="center_vertical|center_horizontal"/>
+
+                <TextView
+                    android:layout_height="40dp"
+                    android:layout_width="match_parent"
+                    android:textSize="16dp"
+                    android:text="전화번호"
+                    android:gravity="center_vertical|center_horizontal"
+                    android:layout_marginBottom="4dp"/>
+
+                <TextView
+                    android:layout_height="40dp"
+                    android:layout_width="match_parent"
+                    android:textSize="16dp"
+                    android:text="홈페이지"
+                    android:layout_marginBottom="4dp"
+                    android:gravity="center_vertical|center_horizontal"/>
+
+                <TextView
+                    android:layout_height="wrap_content"
+                    android:layout_width="match_parent"
+                    android:textSize="16dp"
+                    android:text="관리기관"
+                    android:layout_marginBottom="4dp"
+                    android:gravity="center_vertical|center_horizontal"/>
+
             </LinearLayout>
-
-            <TextView
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:text="홈페이지"
-                android:textSize="12dp"/>
 
             <LinearLayout
-                android:layout_width="match_parent"
+                android:orientation="vertical"
                 android:layout_height="wrap_content"
-                android:orientation="horizontal">
+                android:layout_width="wrap_content"
+                android:layout_weight="1">
 
                 <TextView
-                    android:id="@+id/txtTownHomePage"
-                    android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:textSize="18dp"/>
+                    android:layout_width="match_parent"
+                    android:id="@+id/txtTownName"
+                    android:textSize="16dp"
+                    android:layout_marginBottom="4dp"
+                    android:gravity="center_vertical"/>
 
-                <Button
-                    android:id="@+id/btnTownHomePage"
-                    android:layout_width="wrap_content"
+                <TextView
                     android:layout_height="wrap_content"
-                    android:text="이동"
-                    android:textSize="18dp"/>
+                    android:layout_width="match_parent"
+                    android:id="@+id/txtTownCity"
+                    android:textSize="16dp"
+                    android:layout_marginBottom="4dp"
+                    android:gravity="center_vertical"/>
+
+                <TextView
+                    android:layout_height="wrap_content"
+                    android:layout_width="match_parent"
+                    android:id="@+id/txtTownAddress"
+                    android:textSize="16dp"
+                    android:layout_marginBottom="4dp"
+                    android:gravity="center_vertical"/>
+
+                <TextView
+                    android:layout_height="wrap_content"
+                    android:layout_width="match_parent"
+                    android:id="@+id/txtTownProgram"
+                    android:textSize="16dp"
+                    android:layout_marginBottom="4dp"
+                    android:gravity="center_vertical"/>
+
+                <HorizontalScrollView
+                    android:layout_height="wrap_content"
+                    android:layout_width="match_parent"
+                    android:layout_weight="1"
+                    android:id="@+id/scrollView">
+
+                    <TextView android:layout_height="wrap_content"
+                        android:layout_width="match_parent"
+                        android:id="@+id/txtTownActivity"
+                        android:textSize="16dp"
+                        android:layout_marginBottom="4dp"
+                        android:gravity="center_vertical"/>
+
+                </HorizontalScrollView>
+
+                <TextView
+                    android:layout_height="wrap_content"
+                    android:layout_width="match_parent"
+                    android:id="@+id/txtTownFacility"
+                    android:textSize="16dp"
+                    android:layout_marginBottom="4dp"
+                    android:gravity="center_vertical"/>
+
+                <TextView
+                    android:layout_height="wrap_content"
+                    android:layout_width="match_parent"
+                    android:id="@+id/txtTownPresident"
+                    android:textSize="16dp"
+                    android:layout_marginBottom="4dp"
+                    android:gravity="center_vertical"/>
+
+                <RelativeLayout
+                    android:layout_height="wrap_content"
+                    android:layout_width="match_parent"
+                    android:layout_marginBottom="4dp">
+
+                    <TextView
+                        android:layout_height="wrap_content"
+                        android:layout_width="wrap_content"
+                        android:layout_centerVertical="true"
+                        android:id="@+id/txtTownCall"
+                        android:textSize="16dp"
+                        android:gravity="center_vertical"/>
+
+                    <Button
+                        android:layout_height="40dp"
+                        android:layout_width="wrap_content"
+                        android:id="@+id/btnTownCall"
+                        android:layout_alignParentRight="true"
+                        android:textSize="16dp"
+                        android:text="문의하기"
+                        android:gravity="center_vertical|center_horizontal"/>
+
+                </RelativeLayout>
+
+                <RelativeLayout
+                    android:layout_height="wrap_content"
+                    android:layout_width="match_parent"
+                    android:layout_marginBottom="4dp">
+
+                    <TextView
+                        android:layout_height="wrap_content"
+                        android:layout_width="wrap_content"
+                        android:layout_marginBottom="4dp"
+                        android:layout_centerVertical="true"
+                        android:id="@+id/txtTownHomePage"
+                        android:textSize="16dp"
+                        android:gravity="center_vertical"/>
+
+                    <Button
+                        android:layout_height="40dp"
+                        android:layout_width="wrap_content"
+                        android:id="@+id/btnTownHomePage"
+                        android:layout_alignParentRight="true"
+                        android:layout_marginBottom="4dp"
+                        android:textSize="16dp"
+                        android:text="이동"
+                        android:gravity="center_vertical|center_horizontal"/>
+
+                </RelativeLayout>
+
+
+                <TextView
+                    android:layout_height="wrap_content"
+                    android:layout_width="match_parent"
+                    android:id="@+id/txtTownManagement"
+                    android:textSize="16dp"
+                    android:layout_marginBottom="4dp"
+                    android:gravity="center_vertical"/>
+
             </LinearLayout>
-
-            <TextView
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:text="관리기관명"
-                android:textSize="12dp"/>
-
-            <TextView
-                android:id="@+id/txtTownManagement"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:textSize="18dp"/>
-
         </LinearLayout>
     </ScrollView>
 
     <FrameLayout
-        android:layout_width="match_parent"
-        android:layout_height="300dp">
+        android:layout_height="300dp"
+        android:layout_width="match_parent">
 
         <fragment
-            android:id="@+id/map"
-            android:layout_width="match_parent"
             android:layout_height="match_parent"
+            android:layout_width="match_parent"
+            android:id="@+id/map"
             android:name="com.google.android.gms.maps.SupportMapFragment"/>
 
     </FrameLayout>
+
 </LinearLayout>
