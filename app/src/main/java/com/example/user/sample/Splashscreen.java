@@ -41,6 +41,34 @@ public class Splashscreen extends Activity {
 
         this.imageView.setImageDrawable(getResources().getDrawable(ids[rg]));
 
+        splashTread = new Thread() {
+            @Override
+            public void run() {
+                try {
+
+                    int waited = 0;
+                    // Splash screen pause time
+
+                    while (waited < 3500) {
+                        sleep(100);
+                        waited += 100;
+                    }
+
+                    Intent intent = new Intent(Splashscreen.this, MenuActivity.class);
+                    intent.setFlags(Intent.FLAG_ACTIVITY_NO_ANIMATION);
+                    startActivity(intent);
+
+                    Splashscreen.this.finish();
+
+                } catch (InterruptedException e) {
+                    // do nothing
+                } finally {
+                    Splashscreen.this.finish();
+                }
+
+            }
+        };
+        splashTread.start();
         try {
             createDatabase();
 
@@ -107,34 +135,6 @@ public class Splashscreen extends Activity {
             e.printStackTrace();
         }
 
-        splashTread = new Thread() {
-            @Override
-            public void run() {
-                try {
-
-                    int waited = 0;
-                    // Splash screen pause time
-
-                    while (waited < 3500) {
-                        sleep(100);
-                        waited += 100;
-                    }
-
-                    Intent intent = new Intent(Splashscreen.this, MenuActivity.class);
-                    intent.setFlags(Intent.FLAG_ACTIVITY_NO_ANIMATION);
-                    startActivity(intent);
-
-                    Splashscreen.this.finish();
-
-                } catch (InterruptedException e) {
-                    // do nothing
-                } finally {
-                    Splashscreen.this.finish();
-                }
-
-            }
-        };
-        splashTread.start();
     }
 
     private void createDatabase() {

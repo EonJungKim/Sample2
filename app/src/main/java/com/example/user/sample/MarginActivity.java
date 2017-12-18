@@ -55,7 +55,7 @@ public class MarginActivity extends AppCompatActivity {
     protected void onResume() {
         super.onResume();
 
-        long minTime = 10000;
+        long minTime = 5000;
         float minDistance = 0;
 
         LocationManager manager = (LocationManager) getSystemService(Context.LOCATION_SERVICE);
